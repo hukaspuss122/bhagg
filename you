@@ -1,0 +1,120 @@
+index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sorry Megha</title>
+  <style>
+    body {
+      background-color: #fff0f5;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      text-align: center;
+      padding: 50px;
+    }
+    h1 {
+      font-size: 3em;
+      color: #ff69b4;
+    }
+    p {
+      font-size: 1.2em;
+      margin: 20px 0;
+    }
+    .btn {
+      font-size: 1.2em;
+      padding: 15px 25px;
+      margin: 20px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .yes {
+      background-color: #90ee90;
+    }
+    .no {
+      background-color: #ffcccb;
+    }
+    .letter {
+      max-width: 600px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 20px;
+      border: 2px dashed pink;
+      border-radius: 15px;
+    }
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      transform: rotate(45deg);
+      animation: float 4s infinite ease-in;
+    }
+    .heart::before,
+    .heart::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      border-radius: 50%;
+    }
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+    .heart::after {
+      left: -10px;
+      top: 0;
+    }
+    @keyframes float {
+      0% {
+        transform: translateY(0) rotate(45deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-300px) rotate(45deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Sorry Megha</h1>
+  <p>Megha, I'm really really sorry. I didn't mean to hurt you. Please forgive me!</p>
+
+  <div class="letter">
+    <p>dakh ami ja ja krechi bhul krechi kintu sotti amr khub phatbe tui chele bondhu banale ar tui hoytoh janis nh kintu ami tr chutiya katchi nh ar please amy jdi aktu khani bhlobasis banas nh chele bondhu ar pls ❤🙏🏼</p>
+  </div>
+
+  <button class="btn yes" id="forgiveBtn" onclick="forgiveMe()">I Forgive You</button>
+  <button class="btn no" onclick="makeForgiveBigger()">I Don't Forgive You</button>
+
+  <script>
+    let forgiveBtn = document.getElementById('forgiveBtn');
+    let size = 1.2;
+
+    function forgiveMe() {
+      alert("YAY! Thank you, Megha. I'll do better, I promise.");
+      sendHearts();
+    }
+
+    function makeForgiveBigger() {
+      size += 0.3;
+      forgiveBtn.style.fontSize = size + 'em';
+    }
+
+    function sendHearts() {
+      for (let i = 0; i < 30; i++) {
+        let heart = document.createElement('div');
+        heart.className = 'heart';
+        heart.style.left = Math.random() * window.innerWidth + 'px';
+        heart.style.background = hsl(${Math.random() * 360}, 100%, 70%);
+        document.body.appendChild(heart);
+        setTimeout(() => heart.remove(), 4000);
+      }
+    }
+  </script>
+</body>
+</html>
